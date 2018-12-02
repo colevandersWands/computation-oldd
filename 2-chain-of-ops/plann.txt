@@ -1,0 +1,45 @@
+subgoal labeling
+	https://scholarworks.gsu.edu/cgi/viewcontent.cgi?article=1010&context=ltd_facpub
+	
+https://astexplorer.net
+
+operators limited to 
+	===, ==, Object.is()
+	Number(), String(), Boolean(), void
+	typeof
+
+build an operator precedence reference
+
+https://repl.it/@JLiciaga/Testing-the-value-thereof
+
+and the old tdd
+
+https://github.com/kolodny/exercises
+
+https://github.com/shdnx/nycda-js-algorithm-exercises
+
+string coercions
+tracing & trace-blocks
+test cases
+
+working backwards from test cases
+	- doesn't make sense here
+	given input/output pairs, prove what could or couldn't happened
+	ie. 
+		null => no operations at all, no other primitives
+		'undefined' or undefined in output means ...
+building test cases for expressions
+	looking at operations, what are the meaningful cases
+	ie. 
+		a Number() => inputs must cover booleans, strings of # & not, ...
+		unless it comes after a void
+
+using defined behaviors of primitives & coercion to write proofly test cases
+	prove invertability as example
+
+parse trees
+	https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Parsing
+	inverse representing of pyramid diagram
+	possibly easy to do with mermaid.js - https://mermaidjs.github.io/
+
+study starter has a mermaid parse tree
