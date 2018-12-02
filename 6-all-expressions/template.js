@@ -54,22 +54,6 @@ console.log("\n--- step-through ---");
   if (expected_4 !== actual_4) console.log('FAIL: step-through 4');
 };
 
-console.log('--- encapsulated ---')
-
-  function expression(a, b) {
-    let result; 
-    { // = String(Boolean(a) == Number(b));
-      const step_1 = Boolean(a);
-      const step_2 = Number(b);
-      const step_3 = actual_1 == actual_2;
-      const step_4 = String(actual_3);
-      result = step_4;
-    }
-    return result
-  }
-  run_tests(expression, test_cases);
-
-
 // move to expansions
 console.log("\n--- loggified ---");
 // (for replit, tracelog is great for running batch tests)
@@ -97,6 +81,53 @@ console.log("\n--- loggified ---");
     }
   }
   run_tests(expression_logged, test_cases, true);
+
+
+console.log('--- de-logged ---')
+
+  function expression(a, b) {
+    let result; 
+    { // = String(Boolean(a) == Number(b));
+      const step_1 = Boolean(a);
+      const step_2 = Number(b);
+      const step_3 = actual_1 == actual_2;
+      const step_4 = String(actual_3);
+      result = step_4;
+    }
+    return result
+  }
+  run_tests(expression, test_cases);
+
+
+
+
+console.log('--- substituted ---');
+
+  // ((a + b) == (c < d)) && e
+
+  function substituted(a, b, c, d, e) {
+    let result;
+    {
+      const step_1 = plus(a, b)
+      const step_2 = less_than(c, d)
+      const step_3 = loosely(step_1, step_2)
+      const step_4 = and(step_3, e)
+      result = step_4
+    }
+    return result;
+  }
+  run_tests(substituted, test_cases)
+
+
+
+console.log('--- recompressed ---')
+
+  function recompressed(a, b, c, d, e) {
+    return and(loosely(plus(a, b), less_than(c, d)), e)
+  }
+  run_tests(recompressed, test_cases)
+
+
 
 
 

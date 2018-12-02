@@ -1,0 +1,7 @@
+using conditionals
+	because at this point they can only use if/else (ternary, for collapsing)
+
+incrementers will be difficult to fit in this template
+	might have to treat them as binary operators
+		the change, and the read
+	or it only shows up in the log?
