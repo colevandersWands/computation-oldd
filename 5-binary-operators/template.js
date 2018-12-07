@@ -25,30 +25,20 @@ for (let t_case in test_cases) {
 };
 
 
-console.log("\n--- traced ---");
-
-  function operator(a, b) {
-    let result;
-    { // a _ b
-      // steps to replicate it
-      actual; // = last step
-    }; 
-    return result
-  }
-  run_tests(operator, test_cases)
-
-console.log("\n--- logged ---");
+console.log("\n--- replicated ---");
 
   function operator(a, b, _log) {
     let log;
     if (_log) log = {'0 args': {a,b}}
 
     let result;
+    let trace = {}
     { // a _ b
       // steps to replicate it
-      // log each step
+      // if _log, log each step
       actual; // = last step
     }; 
+    if (_log) log.trace = trace
 
     if (_log) {
       log.result = result;
@@ -57,7 +47,7 @@ console.log("\n--- logged ---");
       return result
     }
   }
-  run_tests(operator, test_cases)
+  run_tests(operator, test_cases, true)
 
 
 

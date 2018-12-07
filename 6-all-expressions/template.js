@@ -54,36 +54,8 @@ console.log("\n--- step-through ---");
   if (expected_4 !== actual_4) console.log('FAIL: step-through 4');
 };
 
-// move to expansions
-console.log("\n--- loggified ---");
-// (for replit, tracelog is great for running batch tests)
-// define test_cases in the block so you can collapse it
-  function expression_logged(a, b, _log) {
-    let log;
-    if (_log) log = {args: {a, b}}
-      
-    let result; 
-    let trace = {};
-    { // = String(Boolean(a) === Number(b));
-      trace.step_1 = Boolean(a);
-      trace.step_2 = Number(b);
-      trace.step_3 = step_1 == step_2;
-      trace.step_4 = String(step_3);
-      result = trace.step_4;
-    }
-    if (_log) log.trace = trace
 
-    if (_log) {
-      log.result = result
-      return log
-    } else {
-      return result
-    }
-  }
-  run_tests(expression_logged, test_cases, true);
-
-
-console.log('--- de-logged ---')
+console.log('--- trace-blocked ---')
 
   function expression(a, b) {
     let result; 
@@ -99,9 +71,8 @@ console.log('--- de-logged ---')
   run_tests(expression, test_cases);
 
 
-
-
 console.log('--- substituted ---');
+  // copy over replications & their tests
 
   // ((a + b) == (c < d)) && e
 
@@ -120,6 +91,37 @@ console.log('--- substituted ---');
 
 
 
+
+console.log("\n--- loggified ---");
+
+  // create an array with some bad test cases
+  // concate good tests in with bad tests -> mixed_test_cases
+
+  function expression_logged(a, b, _log) {
+    let log;
+    if (_log) log = {args: {a, b}}
+      
+    let result; 
+    let trace = {};
+    { // = ((a + b) == (c < d)) && e
+      trace.step_1 = plus(a, b)
+      trace.step_2 = less_than(c, d)
+      trace.step_3 = loosely(step_1, step_2)
+      trace.step_4 = and(step_3, e)
+      result = trace.step_4;
+    }
+    if (_log) log.trace = trace
+
+    if (_log) {
+      log.result = result
+      return log
+    } else {
+      return result
+    }
+  }
+  run_tests(expression_logged, mixed_test_cases, true);
+
+
 console.log('--- recompressed ---')
 
   function recompressed(a, b, c, d, e) {
@@ -127,10 +129,12 @@ console.log('--- recompressed ---')
   }
   run_tests(recompressed, test_cases)
 
+console.log('--- call-stack logged ---')
 
-
-
-
+  function recompressed(a, b, c, d, e) {
+    return and(loosely(plus(a, b), less_than(c, d)), e)
+  }
+  run_tests(recompressed, test_cases)
 
 
 

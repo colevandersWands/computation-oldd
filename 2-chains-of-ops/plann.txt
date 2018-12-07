@@ -1,12 +1,15 @@
 subgoal labeling
 	https://scholarworks.gsu.edu/cgi/viewcontent.cgi?article=1010&context=ltd_facpub
-	
+
+grouping operator
+
 https://astexplorer.net
 
 operators limited to 
 	===, ==, Object.is()
 	Number(), String(), Boolean(), void
 	typeof
+	updated, see prev step
 
 build an operator precedence reference
 
@@ -43,3 +46,5 @@ parse trees
 	possibly easy to do with mermaid.js - https://mermaidjs.github.io/
 
 study starter has a mermaid parse tree
+
+https://repl.it/@ttkl/Type-Exercises

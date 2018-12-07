@@ -55,6 +55,7 @@ console.log('--- encapsulate ---')
   }
   run_tests(if_else, test_cases);
 
+
 console.log('--- logged ---')
 
   function if_else(cond, _log) {

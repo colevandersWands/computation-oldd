@@ -5,3 +5,22 @@ incrementers will be difficult to fit in this template
 	might have to treat them as binary operators
 		the change, and the read
 	or it only shows up in the log?
+
+unaries
+  test case & trace-blocks for unary operators
+    implicit coercion?
+  and some example of them in a computation string
+
+  https://scotch.io/tutorials/javascript-unary-operators-simple-and-useful
+
+  +
+    if on a variable -> increments value, with coercion
+    if on a primitive -> converts to number
+
+  void is really one of these
+
+  back-door coercions
+    - isn't really, but can be thought of as unaries
+    !!
+    +, -
+    ''+, ''-

@@ -1,0 +1,23 @@
+a few more operators that are useful for the next step, but not too complicated
+  !
+    first define it on bools
+    !a -> !Boolean(a)
+    prove that !!a is equivalent to Boolean(a)
+  ==
+    if (typeof a === typeof b) {
+      return a === b
+    } else {
+      ...
+    }
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+  >, <, <=, >=
+  -
+    first define it's behavior on numbers only
+    then factor in the type conversion to define it's behavior for other types
+    -Number(a)
+  +
+    simply converts to number
+
+
+write tests for them based on their composite definition
+  putting together the proof cases from their primary operators
